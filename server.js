@@ -22,6 +22,11 @@ mongoose.connect(process.env.MONGO_URI, {
     console.error('Error connecting to MongoDB:', error);
   });
 
+app.get('/', (req,res) => {
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.send("API runinning");
+})
+
 app.use('/users', userRouters);
 
 // Start the server
